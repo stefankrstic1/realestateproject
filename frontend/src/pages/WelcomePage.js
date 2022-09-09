@@ -1,6 +1,4 @@
 import React, { Fragment } from "react";
-import Layout from "../components/Layout";
-import PhoneLayout from "../components/PhoneLayout";
 
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";

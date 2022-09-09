@@ -12,7 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import LoginButton from "@mui/icons-material/Login";
 
 // PROMENITI SLIKU U NEKI BUDUCI LOGO
-import logo from "../assets/radnilogobezslova.png";
+import logo from "../../assets/radnilogobezslova.png";
 
 import classes from "./TopBar.module.css";
 
@@ -31,6 +31,9 @@ function TopBar() {
               justifyContent: "space-between",
             }}
           >
+            <Box >
+              <img src={logo} alt="logo" className={classes.img} />
+            </Box>
             <IconButton
               size="large"
               color="inherit"
@@ -39,9 +42,7 @@ function TopBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Box sx={{ textAlign: "center" }}>
-              <img src={logo} alt="logo" className={classes.img} />
-            </Box>
+
             <IconButton
               size="large"
               color="inherit"
