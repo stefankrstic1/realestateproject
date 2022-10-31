@@ -4,22 +4,66 @@ import {
   Box,
   Button,
   Divider,
+  Grid,
   IconButton,
   Stack,
+  SvgIcon,
   Toolbar,
+  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import LoginButton from "@mui/icons-material/Login";
+import SearchIcon from "@mui/icons-material/Search";
+import TuneIcon from "@mui/icons-material/Tune";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+
+import { ReactComponent as Logo } from "../../assets/Logo.svg";
 
 // PROMENITI SLIKU U NEKI BUDUCI LOGO
-import logo from "../../assets/radnilogobezslova.png";
 
 import classes from "./TopBar.module.css";
 
 function TopBar() {
   return (
     <Fragment>
-      <Box>
+      <AppBar color="inherit" position="sticky">
+        <Toolbar  sx={{ justifyContent: "space-between" }}>
+          <IconButton color="primary" aria-label="menu" edge="start">
+            <MenuIcon />
+          </IconButton>
+          <SvgIcon fontSize="large">
+            <Logo/>
+          </SvgIcon>
+          <IconButton color="primary" aria-label="search" edge="end">
+            <SearchIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+
+      {/* <AppBar position="sticky">
+        <Toolbar
+          sx={{
+            justifyContent: "space-between",
+          }}
+        >
+          <IconButton disabled size='large'>
+            <Box>
+              <img src={logo} alt="logo" className={classes.img} />
+            </Box>
+          </IconButton>
+          <Button variant="contained" size="small">
+            <SearchIcon></SearchIcon>
+            <Typography variant="body2">Where to?</Typography>
+            <IconButton color="inherit">
+              <TuneIcon></TuneIcon>
+            </IconButton>
+          </Button>
+          <IconButton color="inherit" size='large'>
+            <NotificationsIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar> */}
+      {/* <Box>
         <AppBar
           position="sticky"
           sx={{
@@ -31,7 +75,7 @@ function TopBar() {
               justifyContent: "space-between",
             }}
           >
-            <Box >
+            <Box>
               <img src={logo} alt="logo" className={classes.img} />
             </Box>
             <IconButton
@@ -87,7 +131,7 @@ function TopBar() {
             </Stack>
           </Toolbar>
         </AppBar>
-      </Box>
+      </Box> */}
     </Fragment>
   );
 }

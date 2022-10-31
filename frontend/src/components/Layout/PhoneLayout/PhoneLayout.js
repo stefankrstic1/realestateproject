@@ -9,15 +9,27 @@ import Paper from "@mui/material/Paper";
 import ToolBar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 
-import logo from "../assets/radnilogo.png";
-
 import classes from "./PhoneLayout.module.css";
 import { textAlign } from "@mui/system";
+import { useLocation } from "react-router-dom";
+import WelcomePhoneLayout from "./WelcomePhoneLayout";
+import DefaultPhoneLayout from "./DefaultPhoneLayout";
 
 function PhoneLayout(props) {
+  const location = useLocation();
+  console.log(location);
+
   return (
     <Fragment>
-      <Box>
+      {location.pathname === "/" && (
+        <WelcomePhoneLayout>{props.children}</WelcomePhoneLayout>
+      )}
+      {location.pathname !== "/" && (
+        <DefaultPhoneLayout toggleDrawer={props.toggleDrawer}>
+          {props.children}
+        </DefaultPhoneLayout>
+      )}
+      {/* <Box>
         <AppBar position="sticky">
           <ToolBar sx={{ justifyContent: "space-between" }}>
             <IconButton
@@ -48,7 +60,7 @@ function PhoneLayout(props) {
           </ToolBar>
         </AppBar>
       </Box>
-      {props.children}
+      {props.children} */}
     </Fragment>
   );
 }

@@ -72,14 +72,14 @@ const LoggedInBottomNav = (props) => (
       component={NavLink}
       to="/poruke"
       disableRipple
-      label="Messages"
+      label="Poruke"
       icon={<ChatBubbleOutlineIcon />}
     />
     <MyBottomNavigationAction
       component={NavLink}
       to="/profil"
       disableRipple
-      label="Profile"
+      label="Profil"
       icon={<PersonOutlineIcon />}
     />
   </BottomNavigation>
@@ -118,7 +118,7 @@ const NotLoggedInBottomNav = (props) => (
 );
 
 function BottomNav(props) {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [value, setValue] = useState(0);
 
   return (
@@ -136,7 +136,9 @@ function BottomNav(props) {
           }}
         >
           {loggedIn && <LoggedInBottomNav value={value} setValue={setValue} />}
-          {!loggedIn && <NotLoggedInBottomNav value={value} setValue={setValue}/>}
+          {!loggedIn && (
+            <NotLoggedInBottomNav value={value} setValue={setValue} />
+          )}
         </Paper>
       </HideOnScroll>
     </Fragment>
